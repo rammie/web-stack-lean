@@ -1,13 +1,14 @@
 anyjson==0.3.3
 amqp==1.3.3
+babel==1.3
 billiard==3.3.0.8
 blinker==1.3
-braintree==2.24.1
 celery==3.1.5
 coverage==3.6
 flake8==2.0
 flask==0.10.1
 flask-assets==0.8
+flask-babel==0.9
 flask-compress==1.0.0
 flask-login==0.1.3
 flask-mail==0.9.0
@@ -36,6 +37,7 @@ pytz==2013.8
 pyzmq==2.2.0.1
 redis==2.8.0
 requests==2.0.1
+speaklater==1.3
 tornado==3.1.1
 twill==0.9
 webassets==0.9
