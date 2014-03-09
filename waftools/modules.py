@@ -125,7 +125,7 @@ def build_gfortran(ctx, target):
 
 @conf
 def build_postgresql(ctx, target):
-    module = "postgresql-9.2.4"
+    module = "postgresql-9.3.3"
     srcpath = ctx.env.SRCPATH
     srcscript = """
         set -e
