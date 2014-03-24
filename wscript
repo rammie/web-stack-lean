@@ -62,16 +62,17 @@ def build(ctx):
     ctx(rule=ctx.venv("npm install -g bower"), source="../bin/node", target="../bin/bower")
     ctx(rule="ln -fs ../bower.json bower.json", source="../bin/bower", target="../bower.json")
 
-    ctx(rule=ctx.venv("npm install -g karma"), source="../bin/node", target="../bin/karma")
-    ctx(rule=ctx.venv("npm install -g karma-junit-reporter"), source="../bin/karma",
+    karma = "../lib/node_modules/karma/bin/karma"
+    ctx(rule=ctx.venv("npm install -g karma"), source="../bin/node", target=karma)
+    ctx(rule=ctx.venv("npm install -g karma-junit-reporter"), source=karma,
         target="../lib/node_modules/karma-junit-reporter/package.json")
-    ctx(rule=ctx.venv("npm install -g karma-ng-scenario"), source="../bin/karma",
+    ctx(rule=ctx.venv("npm install -g karma-ng-scenario"), source=karma,
         target="../lib/node_modules/karma-ng-scenario/package.json")
-    ctx(rule=ctx.venv("npm install -g karma-chrome-launcher"), source="../bin/karma",
+    ctx(rule=ctx.venv("npm install -g karma-chrome-launcher"), source=karma,
         target="../lib/node_modules/karma-chrome-launcher/package.json")
-    ctx(rule=ctx.venv("npm install -g karma-firefox-launcher"), source="../bin/karma",
+    ctx(rule=ctx.venv("npm install -g karma-firefox-launcher"), source=karma,
         target="../lib/node_modules/karma-firefox-launcher/package.json")
-    ctx(rule=ctx.venv("npm install -g karma-jasmine"), source="../bin/karma",
+    ctx(rule=ctx.venv("npm install -g karma-jasmine"), source=karma,
         target="../lib/node_modules/karma-jasmine/package.json")
 
     bower_install_cmd = ctx.venv("cd $VIRTUAL_ENV && bower install --save && touch .bower-done")
