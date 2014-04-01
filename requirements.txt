@@ -50,7 +50,7 @@ six==1.6.1
 speaklater==1.3
 tornado==3.2
 twill==0.9
-webassets==0.10.dev
+webassets==0.9
 werkzeug==0.9.4
 whoosh==2.6.0
 wtf-peewee==0.2.3
