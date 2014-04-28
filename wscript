@@ -60,7 +60,6 @@ def build(ctx):
         source="../bin/node", target="../bin/protractor")
 
     ctx(rule=ctx.venv("npm install -g bower"), source="../bin/node", target="../bin/bower")
-    ctx(rule="ln -fs ../bower.json bower.json", source="../bin/bower", target="../bower.json")
 
     karma = "../lib/node_modules/karma/bin/karma"
     ctx(rule=ctx.venv("npm install -g karma"), source="../bin/node", target=karma)
@@ -74,7 +73,3 @@ def build(ctx):
         target="../lib/node_modules/karma-firefox-launcher/package.json")
     ctx(rule=ctx.venv("npm install -g karma-jasmine"), source=karma,
         target="../lib/node_modules/karma-jasmine/package.json")
-
-    bower_install_cmd = ctx.venv("cd $VIRTUAL_ENV && bower install --save && touch .bower-done")
-    ctx(rule=bower_install_cmd, source="../bin/bower", target="../.bower-done")
-    ctx.add_manual_dependency("../.bower-done", ctx.path.find_node("../bower.json"))
