@@ -1,8 +1,5 @@
-Machine-Stack
-============
-Sets up a python virtualenv with various scientific packages.
-Includes: numpy, scipy, ipython, matplotlib
-
+Python-Flask-Stack
+==================
 
 Requirements
 ============
@@ -13,9 +10,9 @@ Python 2.7 with distutils and virtualenv installed.
 Usage
 =====
 
-The machine-stack repo must be included as a submodule to your main git repo.
-It can be named anything. The top level of the repo must include a wscript file
-which should look something like:
+The repo must be included as a submodule to your main git repo.
+It can be named anything. Assume it is called "src". The top level
+of the repo must include a wscript file which should look like:
 
 
 ```python
@@ -35,6 +32,11 @@ def configure(ctx):
 
 
 def build(ctx):
+    ctx(rule="virtualenv --distribute .", target="bin/python")
+    ctx.template(
+        "src/activate.tmpl", format=False, executable=True,
+        source="bin/python", target="bin/activate")
+
     ctx.recurse("src")
 ```
 
@@ -43,7 +45,7 @@ To build the stack, run the following command from the top level of the repo.
 On Ubuntu, you must first install a fortran compiler with lapack.
 
 ```
-$ sudo apt-get install gfortran liblapack-dev
+$ sudo apt-get install python-virtualenv
 ```
 
 To build the stack run:
