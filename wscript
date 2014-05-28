@@ -59,10 +59,16 @@ def build(ctx):
         rule=ctx.venv("npm install -g protractor; webdriver-manager update"),
         source="../bin/node", target="../bin/protractor")
 
+
     ctx(rule=ctx.venv("npm install -g bower"), source="../bin/node", target="../bin/bower")
+    ctx(rule=ctx.venv("npm install -g node-sass"), source="../bin/node", target="../bin/node-sass")
 
     karma = "../lib/node_modules/karma/bin/karma"
     ctx(rule=ctx.venv("npm install -g karma"), source="../bin/node", target=karma)
+    ctx(rule=ctx.venv("npm install -g karma-cli"), source=karma,
+        target="../lib/node_modules/karma-cli/package.json")
+    ctx(rule=ctx.venv("npm install -g karma-coverage"), source=karma,
+        target="../lib/node_modules/karma-coverage/package.json")
     ctx(rule=ctx.venv("npm install -g karma-junit-reporter"), source=karma,
         target="../lib/node_modules/karma-junit-reporter/package.json")
     ctx(rule=ctx.venv("npm install -g karma-ng-scenario"), source=karma,
@@ -71,5 +77,7 @@ def build(ctx):
         target="../lib/node_modules/karma-chrome-launcher/package.json")
     ctx(rule=ctx.venv("npm install -g karma-firefox-launcher"), source=karma,
         target="../lib/node_modules/karma-firefox-launcher/package.json")
+    ctx(rule=ctx.venv("npm install -g karma-phantomjs-launcher"), source=karma,
+        target="../lib/node_modules/karma-phantomjs-launcher/package.json")
     ctx(rule=ctx.venv("npm install -g karma-jasmine"), source=karma,
         target="../lib/node_modules/karma-jasmine/package.json")
