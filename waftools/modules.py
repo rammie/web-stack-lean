@@ -24,7 +24,7 @@ def template_renderer(ctx, srcpath, dstpath, format=True, executable=False, **kw
 @conf
 def template(ctx, srcpath, **kwargs):
     tgtpath = kwargs.get("target")
-    opts = kwargs.pop("template_args", {})
+    opts = dict(kwargs.pop("template_args", {}))
     opts.update(dict(
         format=kwargs.pop("format", True),
         executable=kwargs.pop("executable", False)))
