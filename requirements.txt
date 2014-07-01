@@ -14,7 +14,7 @@ flask-babel==0.9
 flask-compress==1.0.0
 flask-login==0.2.10
 flask-mail==0.9.0
-flask-peewee==0.6.5dev
+flask-peewee==0.6.5
 flask-s3==0.1.6
 flask-script==0.6.7
 flask-testing==0.4.1
