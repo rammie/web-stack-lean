@@ -54,7 +54,6 @@ def build(ctx):
     ctx.add_manual_dependency("../.requirements-done", ctx.path.find_node("requirements.txt"))
 
     ctx(rule=ctx.venv("npm install -g uglify-js"), source="../bin/node", target="../bin/uglifyjs")
-    ctx(rule=ctx.venv("npm install -g phantomjs"), source="../bin/node", target="../bin/phantomjs")
     ctx(rule=ctx.venv("npm install -g jshint"), source="../bin/node", target="../bin/jshint")
     ctx(
         rule=ctx.venv("npm install -g protractor; webdriver-manager update"),
