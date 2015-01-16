@@ -53,15 +53,20 @@ def build(ctx):
         target="../.requirements-done")
     ctx.add_manual_dependency("../.requirements-done", ctx.path.find_node("requirements.txt"))
 
-    ctx(rule=ctx.venv("npm install -g uglify-js"), source="../bin/node", target="../bin/uglifyjs")
     ctx(rule=ctx.venv("npm install -g jshint"), source="../bin/node", target="../bin/jshint")
+    ctx(rule=ctx.venv("npm install -g bower"), source="../bin/node", target="../bin/bower")
+
+    ctx(
+        rule=ctx.venv("npm install -g uglify-js@2.4.7"),
+        source="../bin/node", target="../bin/uglifyjs")
+
+    ctx(
+        rule=ctx.venv("npm install -g node-sass@0.9.6"),
+        source="../bin/node", target="../bin/node-sass")
+
     ctx(
         rule=ctx.venv("npm install -g protractor; webdriver-manager update"),
         source="../bin/node", target="../bin/protractor")
-
-
-    ctx(rule=ctx.venv("npm install -g bower"), source="../bin/node", target="../bin/bower")
-    ctx(rule=ctx.venv("npm install -g node-sass"), source="../bin/node", target="../bin/node-sass")
 
     karma = "../lib/node_modules/karma/bin/karma"
     ctx(rule=ctx.venv("npm install -g karma"), source="../bin/node", target=karma)
