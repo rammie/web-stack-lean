@@ -57,7 +57,7 @@ tornado==3.2
 twill==1.8.0
 urllib3==1.7.1
 webassets==0.9
-werkzeug==0.9.4
+werkzeug==0.15.3
 whoosh==2.6.0
 wtf-peewee==0.2.3
 wtforms==1.0.5
