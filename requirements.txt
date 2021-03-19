@@ -27,7 +27,7 @@ httplib2==0.9
 httpretty==0.8.3
 itsdangerous==0.24
 ipython==1.2.1
-jinja2==2.7.2
+jinja2==2.11.3
 kombu==3.0.13
 markupSafe==0.21
 mccabe==0.2.1
