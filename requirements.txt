@@ -49,7 +49,7 @@ pytz==2014.1
 pyzmq==14.1.0
 raven==5.0.0
 redis==2.9.1
-requests==2.2.1
+requests==2.20.0
 simplejson==3.3.3
 six==1.6.1
 speaklater==1.3
